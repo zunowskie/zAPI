@@ -1,0 +1,7 @@
+name: zAPI
+version: '1.0'
+main: ru.zunowskie.zAPI
+commands:
+  zapi:
+    description: main
+
