@@ -1,4 +1,4 @@
-package ru.zunowskie.Commands;
+package ru.zunowskie.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,12 +6,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import ru.zunowskie.Manager.DowloadToPlugins;
+import ru.zunowskie.manager.DowloadToPlugins;
 
 public class MainCMD implements CommandExecutor {
     public static String c(String text) {
         return ChatColor.translateAlternateColorCodes('&', text);
     }
+
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
@@ -23,6 +25,7 @@ public class MainCMD implements CommandExecutor {
 
 
             if (cmd.getName().equalsIgnoreCase("zapi")) {
+
 
 
                 if (args.length == 0) {
@@ -76,17 +79,28 @@ public class MainCMD implements CommandExecutor {
 
                     if (args[1].equalsIgnoreCase("zChatPers")) {
 
+
+                        if (!Bukkit.getServer().getVersion().contains("1.16.5")){
+                            sender.sendMessage(c("&6&lzAPI: &fВерсия вашего сервера не поддерживает данный плагин."));
+                            return true;
+                        }
+
                         if (Bukkit.getPluginManager().getPlugin("zChatPers") != null) {
                             sender.sendMessage(c("&6&lzAPI: &fПлагин уже загружен. Загрузка &eотменена"));
                             return true;
                         }
 
-                            sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
+                        if(Bukkit.getPluginManager().getPlugin("VK-API") == null){
+                            sender.sendMessage(c("&6&lzAPI: &fУстановите библиотеку VK-API Bukkit и настройте ее. Потом повторите скачивание"));
+                            return true;
+                        }
 
-                            DowloadToPlugins.toDowload("https://github.com/zunowskie/zChatPers/releases/download/build/zChatPers.1.16.5.jar", "plugins", "zChatPers.jar", () -> {
+                        sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
 
-                                sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
-                            });
+                        DowloadToPlugins.toDowload("https://github.com/zunowskie/zChatPers/releases/latest/download/zChatPers.1.16.5.jar", "plugins", "zChatPers.jar", () -> {
+
+                            sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
+                        });
                     }
                     if (args[1].equalsIgnoreCase("zRespawn")){
                         if (Bukkit.getPluginManager().getPlugin("zRespawn") != null) {
@@ -97,7 +111,29 @@ public class MainCMD implements CommandExecutor {
 
                         sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
 
-                        DowloadToPlugins.toDowload("https://github.com/zunowskie/zRespawn/releases/download/build/zRespawn.jar", "plugins", "zRespawn.jar", () -> {
+                        DowloadToPlugins.toDowload("https://github.com/zunowskie/zRespawn/releases/latest/download/zRespawn.jar", "plugins", "zRespawn.jar", () -> {
+
+                            sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
+                        });
+
+                    }
+
+                    if (args[1].equalsIgnoreCase("zTPSControls ")){
+
+                        if (!Bukkit.getServer().getVersion().contains("1.16.5")){
+                            sender.sendMessage(c("&6&lzAPI: &fВерсия вашего сервера не поддерживает данный плагин."));
+                            return true;
+                        }
+
+                        if (Bukkit.getPluginManager().getPlugin("zTPSControls ") != null) {
+
+                            sender.sendMessage(c("&6&lzAPI: &fПлагин уже загружен. Загрузка &eотменена"));
+                            return true;
+                        }
+
+                        sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
+
+                        DowloadToPlugins.toDowload("https://github.com/zunowskie/zTPSControls/releases/latest/download/zTPSControl.jar", "plugins", "zRespawn.jar", () -> {
 
                             sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
                         });

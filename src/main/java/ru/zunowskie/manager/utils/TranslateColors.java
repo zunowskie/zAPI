@@ -1,4 +1,4 @@
-package ru.zunowskie.Manager.Utils;
+package ru.zunowskie.manager.utils;
 
 import org.bukkit.ChatColor;
 

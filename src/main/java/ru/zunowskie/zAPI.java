@@ -2,8 +2,8 @@ package ru.zunowskie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.zunowskie.Commands.MainCMD;
-import ru.zunowskie.Manager.Utils.TabCmpl;
+import ru.zunowskie.commands.MainCMD;
+import ru.zunowskie.manager.utils.TabCmpl;
 
 public final class zAPI extends JavaPlugin {
 

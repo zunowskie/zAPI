@@ -1,4 +1,4 @@
-package ru.zunowskie.Manager;
+package ru.zunowskie.manager;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.InvalidDescriptionException;
@@ -38,8 +38,6 @@ public class DowloadToPlugins {
                     PluginManager pluginManager = Bukkit.getPluginManager();
                     Plugin loadedPlugin = pluginManager.loadPlugin(file);
                     pluginManager.enablePlugin(loadedPlugin);
-
-                    System.out.println("Плагин успешно загружен и запущен.");
                 }
 
                 if (callback != null) {
