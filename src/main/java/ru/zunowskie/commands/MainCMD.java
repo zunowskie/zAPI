@@ -27,7 +27,6 @@ public class MainCMD implements CommandExecutor {
             if (cmd.getName().equalsIgnoreCase("zapi")) {
 
 
-
                 if (args.length == 0) {
                     sender.sendMessage(c("&6╔"));
                     sender.sendMessage(c("§6║ &fПривет &a") + sender.getName());
@@ -80,7 +79,7 @@ public class MainCMD implements CommandExecutor {
                     if (args[1].equalsIgnoreCase("zChatPers")) {
 
 
-                        if (!Bukkit.getServer().getVersion().contains("1.16.5")){
+                        if (!Bukkit.getServer().getVersion().contains("1.16.5")) {
                             sender.sendMessage(c("&6&lzAPI: &fВерсия вашего сервера не поддерживает данный плагин."));
                             return true;
                         }
@@ -90,7 +89,7 @@ public class MainCMD implements CommandExecutor {
                             return true;
                         }
 
-                        if(Bukkit.getPluginManager().getPlugin("VK-API") == null){
+                        if (Bukkit.getPluginManager().getPlugin("VK-API") == null) {
                             sender.sendMessage(c("&6&lzAPI: &fУстановите библиотеку VK-API Bukkit и настройте ее. Потом повторите скачивание"));
                             return true;
                         }
@@ -102,7 +101,7 @@ public class MainCMD implements CommandExecutor {
                             sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
                         });
                     }
-                    if (args[1].equalsIgnoreCase("zRespawn")){
+                    if (args[1].equalsIgnoreCase("zRespawn")) {
                         if (Bukkit.getPluginManager().getPlugin("zRespawn") != null) {
 
                             sender.sendMessage(c("&6&lzAPI: &fПлагин уже загружен. Загрузка &eотменена"));
@@ -117,6 +116,34 @@ public class MainCMD implements CommandExecutor {
                         });
 
                     }
+                    if (args[1].equalsIgnoreCase("zBoss")) {
+                        if (Bukkit.getPluginManager().getPlugin("zBoss") != null) {
+                            sender.sendMessage(c("&6&lzAPI: &fПлагин уже загружен. Загрузка &eотменена"));
+                            return true;
+                        }
+
+                        if (Bukkit.getServer().getVersion().contains("1.12.2")) {
+                            sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
+
+                            DowloadToPlugins.toDowload("https://github.com/zunowskie/zBoss/releases/latest/download/zBoss.jar", "plugins", "zBoss.jar", () -> {
+                                sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
+                            });
+                            return true;
+                        } else {
+                            // Проверяем, является ли третий аргумент "confirm"
+                            if (args.length >= 3 && args[2].equalsIgnoreCase("confirm")) {
+                                sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
+
+                                DowloadToPlugins.toDowload("https://github.com/zunowskie/zBoss/releases/latest/download/zBoss.jar", "plugins", "zBoss.jar", () -> {
+                                    sender.sendMessage(c("&6&lzAPI: &fПлагин был успешно загружен и запущен"));
+                                });
+                                return true;
+                            } else {
+                                sender.sendMessage(c("&6&lzAPI: &fСвыше версии 1.12.2 плагин не проверялся! Могут быть ошибки и т.д. Если вы уверены что хотите установить то напиши /zapi download zBoss confirm"));
+                            }
+                        }
+                    }
+
 
                     if (args[1].equalsIgnoreCase("zTPSControls ")){
 

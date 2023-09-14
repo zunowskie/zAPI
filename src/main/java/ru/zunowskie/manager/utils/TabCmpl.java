@@ -14,7 +14,7 @@ public class TabCmpl implements TabCompleter {
             return Arrays.asList("download", "help");
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("download")) {
-            return Arrays.asList("zChatPers", "zRespawn", "zTPSControls");
+            return Arrays.asList("zChatPers", "zRespawn", "zTPSControls", "zBoss");
         }
 
         return null;
