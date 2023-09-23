@@ -14,67 +14,87 @@ public class MainCMD implements CommandExecutor {
     }
 
 
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(c("&6&lzAPI: &fДанную команду можно выполнять только игрокам!")) ;
+            sender.sendMessage(c("&6&lzAPI: &fДанную команду можно выполнять только игрокам!"));
             return true;
 
         } else {
-
-
             if (cmd.getName().equalsIgnoreCase("zapi")) {
-
-
                 if (args.length == 0) {
-                    sender.sendMessage(c("&6╔"));
-                    sender.sendMessage(c("§6║ &fПривет &a") + sender.getName());
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &fБлагодарю за &aиспользование &fплагинов &6zunowskie"));
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &6&lzAPI - &a&lАПИ &fдля запуска и &eкорректной &fработы плагинов &6Z"));
-                    sender.sendMessage(c("§6║"));
+                    String message = "&6╔\n" +
+                            "§6║ &fПривет &a" + sender.getName() + "\n" +
+                            "§6║\n" +
+                            "§6║ &fБлагодарю за &aиспользование &fплагинов &6zunowskie\n" +
+                            "§6║\n" +
+                            "§6║ &6&lzAPI - &a&lАПИ &fдля запуска и &eкорректной &fработы плагинов &6Z\n" +
+                            "§6║\n" +
+                            "§6║ &fВерсия - &a1.0\n" +
+                            "§6║\n" +
+                            "§6║ &fКоманды &6&lzAPI\n" +
+                            "§6║\n" +
+                            "§6║ &e&l/zapi &adownload - &fданная команда скачивает плагины\n" +
+                            "§6║ &fс репозитория &6zunowskie\n" +
+                            "§6║\n" +
+                            "§6║ &e&l/zapi &ahelp - &fконтакты &6zunowskie\n" +
+                            "§6╚";
 
-                    sender.sendMessage(c("§6║ &fВерсия - &a1.0"));
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &fКоманды &6&lzAPI"));
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &e&l/zapi &adownload - &fданная команда скачивает плагины"));
-                    sender.sendMessage(c("§6║ &fс репозитория &6zunowskie"));
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &e&l/zapi &ahelp - &fконтакты &6zunowskie"));
-                    sender.sendMessage(c("§6╚"));
+                    sender.sendMessage(c(message));
                     return true;
 
                 }
 
-                if (args[0].equalsIgnoreCase("help")) {
-                    sender.sendMessage(c("&6╔"));
-                    sender.sendMessage(c("§6║ &fКонтакты &6zunowskie"));
-                    sender.sendMessage(c("§6║"));
-                    sender.sendMessage(c("§6║ &b&lVK: &6vk.com/zunowi"));
-                    sender.sendMessage(c("§6╚"));
-                    return true;
+                switch (args[0].toLowerCase()) {
+                    case "help":
+                        String message = "&6╔\n" +
+                                "§6║ &fКонтакты &6zunowskie\n" +
+                                "§6║\n" +
+                                "§6║ &b&lVK: &6https://bio.hushworld.fun\n" +
+                                "§6╚";
+                        sender.sendMessage(c(message));
+                        break;
+                    case "download":
+                        if (args.length == 1) {
+                            String message2 = "&6╔\n" +
+                                    "§6║ &f&lПривет, &a" + sender.getName() + "\n" +
+                                    "§6║\n" +
+                                    "§6║ &fТебя приветствует &eмастер &fустановщик плагинов &6zunowskie!\n" +
+                                    "§6║\n" +
+                                    "§6║ &fДанная &aутилита &fбыла создана для быстрого\n" +
+                                    "§6║ &fскачивания из репозитория &6zunowskie\n" +
+                                    "§6║\n" +
+                                    "§6║ &fДоступные &aкоманды &eдля &fскачивания плагина\n" +
+                                    "§6║\n" +
+                                    "§6║ &f/zapi &edownload &aплагин\n" +
+                                    "§6╚";
+
+                            sender.sendMessage(c(message2));
+                            break;
+                        }
+
+
                 }
+
 
                 if (args[0].equalsIgnoreCase("download")) {
                     if (args.length == 1) {
-                        sender.sendMessage(c("&6╔"));
-                        sender.sendMessage(c("§6║ &f&lПривет, &a" + sender.getName()));
-                        sender.sendMessage(c("§6║"));
-                        sender.sendMessage(c("§6║ &fТебя приветсвует &eмастер &fустановщик плагинов &6zunowskie!"));
-                        sender.sendMessage(c("§6║"));
-                        sender.sendMessage(c("§6║ &fДанная &aутилита &fбыла создана для быстрого"));
-                        sender.sendMessage(c("§6║ &fскачивания из репозитория &6zunowskie"));
-                        sender.sendMessage(c("§6║"));
-                        sender.sendMessage(c("§6║ &fДоступные &aкоманды &eдля &fскачивания плагина"));
-                        sender.sendMessage(c("§6║"));
-                        sender.sendMessage(c("§6║ &f/zapi &edownload &aплагин"));
-                        sender.sendMessage(c("§6╚"));
+                        String message = "&6╔\n" +
+                                "§6║ &f&lПривет, &a" + sender.getName() + "\n" +
+                                "§6║\n" +
+                                "§6║ &fТебя приветствует &eмастер &fустановщик плагинов &6zunowskie!\n" +
+                                "§6║\n" +
+                                "§6║ &fДанная &aутилита &fбыла создана для быстрого\n" +
+                                "§6║ &fскачивания из репозитория &6zunowskie\n" +
+                                "§6║\n" +
+                                "§6║ &fДоступные &aкоманды &eдля &fскачивания плагина\n" +
+                                "§6║\n" +
+                                "§6║ &f/zapi &edownload &aплагин\n" +
+                                "§6╚";
+
+                        sender.sendMessage(c(message));
                         return true;
                     }
-
 
                     if (args[1].equalsIgnoreCase("zChatPers")) {
 
@@ -130,7 +150,6 @@ public class MainCMD implements CommandExecutor {
                             });
                             return true;
                         } else {
-                            // Проверяем, является ли третий аргумент "confirm"
                             if (args.length >= 3 && args[2].equalsIgnoreCase("confirm")) {
                                 sender.sendMessage(c("&6&lzAPI: &fНачинаю скачивать плагин с репозитория zunowskie..."));
 
@@ -145,9 +164,9 @@ public class MainCMD implements CommandExecutor {
                     }
 
 
-                    if (args[1].equalsIgnoreCase("zTPSControls ")){
+                    if (args[1].equalsIgnoreCase("zTPSControls ")) {
 
-                        if (!Bukkit.getServer().getVersion().contains("1.16.5")){
+                        if (!Bukkit.getServer().getVersion().contains("1.16.5")) {
                             sender.sendMessage(c("&6&lzAPI: &fВерсия вашего сервера не поддерживает данный плагин."));
                             return true;
                         }
@@ -166,6 +185,7 @@ public class MainCMD implements CommandExecutor {
                         });
 
                     }
+
                 }
             }
         }

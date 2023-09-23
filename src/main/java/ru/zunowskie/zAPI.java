@@ -17,7 +17,6 @@ public final class zAPI extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        saveDefaultConfig();
         loadModules();
         logo();
 
@@ -40,18 +39,15 @@ public final class zAPI extends JavaPlugin {
 
     public void logo(){
 
-
-        Bukkit.getLogger().info("§e| §c███████╗░█████╗░██████╗░██╗");
-        Bukkit.getLogger().info("§e| §c╚════██║██╔══██╗██╔══██╗██║");
-        Bukkit.getLogger().info("§e| §c░░███╔═╝███████║██████╔╝██║");
-        Bukkit.getLogger().info("§e| §c██╔══╝░░██╔══██║██╔═══╝░██║");
-        Bukkit.getLogger().info("§e| §c███████╗██║░░██║██║░░░░░██║");
-        Bukkit.getLogger().info("§e| §c╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝");
-        Bukkit.getLogger().info("§e| §fПлагин §6zAPI §7 §fВерсия плагина - §a1.0");
-        Bukkit.getLogger().info("§e| §fРазработчик - §e§nvk.com/zunowi §f");
-        Bukkit.getLogger().info("");
-
-
-        // logo
+        Bukkit.getLogger().info("\n" +
+                "§e| §c███████╗░█████╗░██████╗░██╗\n" +
+                "§e| §c╚════██║██╔══██╗██╔══██╗██║\n" +
+                "§e| §c░░███╔═╝███████║██████╔╝██║\n" +
+                "§e| §c██╔══╝░░██╔══██║██╔═══╝░██║\n" +
+                "§e| §c███████╗██║░░██║██║░░░░░██║\n" +
+                "§e| §c╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝\n" +
+                "§e| §fПлагин §6zAPI §7 §fВерсия плагина - §a1.0\n" +
+                "§e| §fРазработчик - §e§nvk.com/zunowi §f\n" +
+                "§e| ");
     }
 }
