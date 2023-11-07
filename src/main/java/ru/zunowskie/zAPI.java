@@ -30,7 +30,6 @@ public final class zAPI extends JavaPlugin {
 
 
     public void loadModules(){
-        saveDefaultConfig();
         getCommand("zapi").setExecutor(new MainCMD());
         getServer().getPluginCommand("zapi").setTabCompleter(new TabCmpl());
 
